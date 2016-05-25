@@ -1,0 +1,13 @@
+app/code/community/NeoTheme  app/code/community/NeoTheme
+app/design/adminhtml/default/default/layout/neotheme  app/design/adminhtml/default/default/layout/neotheme
+app/design/adminhtml/default/default/template/neotheme  app/design/adminhtml/default/default/template/neotheme
+app/design/frontend/base/default/layout/neotheme  app/design/frontend/base/default/layout/neotheme
+app/design/frontend/base/default/template/neotheme  app/design/frontend/base/default/template/neotheme
+app/etc/modules/NeoTheme_Blog.xml  app/etc/modules/NeoTheme_Blog.xml
+app/locale/de_DE/NeoTheme_Blog.csv  app/locale/de_DE/NeoTheme_Blog.csv
+app/locale/en_US/NeoTheme_Blog.csv  app/locale/en_US/NeoTheme_Blog.csv
+app/locale/es_ES/NeoTheme_Blog.csv  app/locale/es_ES/NeoTheme_Blog.csv
+app/locale/fr_FR/NeoTheme_Blog.csv  app/locale/fr_FR/NeoTheme_Blog.csv
+app/locale/nl_NL/NeoTheme_Blog.csv  app/locale/nl_NL/NeoTheme_Blog.csv
+skin/adminhtml/base/default/images/neotheme  skin/adminhtml/base/default/images/neotheme
+skin/frontend/base/default/css/neotheme  skin/frontend/base/default/css/neotheme
