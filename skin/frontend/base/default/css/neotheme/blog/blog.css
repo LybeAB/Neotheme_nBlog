@@ -4,6 +4,11 @@
 /* Global Styles ========================================================================= */
 .clr { clear:both; }
 
+/* Blog List: Pager ========================================================================= */
+.blog-wrapper .pager { text-align: center; }
+.blog-wrapper .pager .pages { float: none; }
+.blog-wrapper .pager .pages strong { float: none; }
+
 /* Blog Summary ========================================================================= */
 .blog.blog-summary.last article { border-bottom: none; }
 

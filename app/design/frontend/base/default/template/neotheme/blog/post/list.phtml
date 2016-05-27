@@ -42,15 +42,16 @@
     </div>
     <?php $count--; ?>
     <?php endforeach; ?>
-    <div class="toolbar"><?php echo $this->getPagerHtml(); ?></div>
+    <?php if (Mage::helper('neotheme_blog')->): ?>
+    
+    <?php echo $this->getPagerHtml(); ?>
 
     <?php # LYBE: Björn [ Override pager in template would be an better option ]  ?>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
-            $('.toolbar .pager > *').each(function(){
+            $('.pager > *').each(function(){
                 if ($(this).hasClass('amount') || $(this).hasClass('limiter')) { $(this).remove(); }
             });
         });
     </script>
-
 <?php endif;?>
