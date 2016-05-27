@@ -32,20 +32,17 @@
 <div class="blog blog-detail">
     <article class="post">
     	<div class="page-title post-title"><h1><?php echo $this->getPost()->getTitle(); ?></h1></div>
-        
         <div class="post-metadata">
-            <ul>
-                <li class="post-time">
-                    <?php echo $this->__('Posted On: ');?> 
-                    <?php $date = ($this->getPost()->getPostDate() != NULL)? $this->getPost()->getPostDate()  : $this->getPost()->getCreatedAt() ; ?>
-                    <?php  echo  Mage::app()->getLocale()->date($date)->toString($format); ?>
-                </li>
-                <?php if ($this->getPost()->getAuthor()): ?>
-                <div class="post-author"><?php echo $this->__('by'); ?> <?php echo $this->getPost()->getAuthor(); ?></div>
-                <?php endif;?>
-            </ul>
+            <div class="post-time">
+                <?php echo $this->__('Posted On: ');?> 
+                <?php $date = ($this->getPost()->getPostDate() != NULL)? $this->getPost()->getPostDate()  : $this->getPost()->getCreatedAt() ; ?>
+                <?php  echo  Mage::app()->getLocale()->date($date)->toString($format); ?>
+            </div>
+            <?php if ($this->getPost()->getAuthor()): ?>
+            <div class="post-author"><?php echo $this->__('by'); ?> <?php echo $this->getPost()->getAuthor(); ?></div>
+            <?php endif;?>
         </div>
-        
+
         <div class="post-content">
             <?php echo $this->getPost()->getContentHtml();?>
         </div>
@@ -54,17 +51,21 @@
             <?php if ( (int) $this->getPost()->getStatus() == NeoTheme_Blog_Model_Post::STATUS_DRAFT) : ?>
                 <h3 style="color:red;"><?php echo $this->__('[Draft] (not visible publicly)');?></h3>
             <?php endif; ?>
-            <?php if ( $this->getPost()->getCategories()->count()) : ?>
-            <ul class="post-categories">
-                <?php echo $this->__('Posted In: ');?>
-                <?php $i = 0; ?>
-                <?php foreach($this->getPost()->getCategories() as $category):?>
-                    <?php $catName =  ($i > 0)? ',' . $category->getName() : $category->getName(); ?>
-                        <li><a href="<?php echo $category->getListUrl();?>"><?php echo $catName; ?></a></li>
-                    <?php $i++; ?>
-                <?php endforeach; ?>
-            </ul>
-            <?php endif;?>
+
+            <?php if (Mage::helper('neotheme_blog')->isCategoryShownInFrontend()): ?>
+                <?php if ( $this->getPost()->getCategories()->count()) : ?>
+                <ul class="post-categories">
+                    <?php echo $this->__('Posted In: ');?>
+                    <?php $i = 0; ?>
+                    <?php foreach($this->getPost()->getCategories() as $category):?>
+                        <?php $catName =  ($i > 0)? ',' . $category->getName() : $category->getName(); ?>
+                            <li><a href="<?php echo $category->getListUrl();?>"><?php echo $catName; ?></a></li>
+                        <?php $i++; ?>
+                    <?php endforeach; ?>
+                </ul>
+                <?php endif;?>
+            <?php endif ?>
+
             <?php if ( Mage::helper('neotheme_blog')->isDefaultCommentingEnabled()) : ?>
             <?php 
                 $commentCount = $this->getPost()->getComments()->count();
@@ -87,4 +88,4 @@
 		<?php echo $this->getChildHtml('blog.post.comment.form');?>
     </div>
 </div>
-<?php     Zend_Date::setOptions(array('format_type' => 'iso'));     ?>
+<?php Zend_Date::setOptions(array('format_type' => 'iso'));     ?>

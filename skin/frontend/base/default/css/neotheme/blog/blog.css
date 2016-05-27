@@ -4,13 +4,22 @@
 /* Global Styles ========================================================================= */
 .clr { clear:both; }
 
+/* Blog Summary ========================================================================= */
+.blog.blog-summary.last article { border-bottom: none; }
 
 /* Blog Category / Post ========================================================================= */
 .blog article.post  { border-bottom:1px solid #efefef; margin-bottom:20px; padding-bottom:10px; }
-.blog article.post .post-title { border-bottom:0; margin:0; font-size:20px; }
-.blog article.post .post-metadata { padding:10px 0; }
+.blog article.post .post-title { min-height: 35px; float: left; border-bottom:0; margin:0; }
+
+.blog article.post .post-metadata { min-height: 35px; float: right; }
+.blog article.post .post-metadata > * { display: inline; line-height: 35px; }
+
+
+.blog article.post .post-summary,
+.blog article.post .post-content { clear: both; padding-top: 10px; }
+
 .blog article.post .post-summary .read-more { padding-bottom:5px; }
-.blog article.post .post-info { padding:10px 0; }
+.blog article.post .post-info { padding:0; }
 .blog article.post .post-info .post-categories li  { display:inline; }
 .blog article.post .post-info ul.post-categories { float:left; }
 .blog article.post .post-info li.post-comments { float:right; }

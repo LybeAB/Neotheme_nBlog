@@ -36,6 +36,7 @@
                 <category translate="title" module="neotheme_blog">
                     <title><![CDATA[Categories]]></title>
                     <action>adminhtml/neotheme_blog_category/</action>
+                    <disabled>1</disabled><!-- LYBE: Björn [tempfix] -->
                 </category>	 
                 <comment translate="title" module="neotheme_blog">
                     <title><![CDATA[Comments]]></title>
@@ -47,6 +48,7 @@
                 </configuration>
             </children>
         </neotheme_blog>
+        
     </menu>
     <acl>
         <resources>

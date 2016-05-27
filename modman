@@ -11,3 +11,4 @@ app/locale/fr_FR/NeoTheme_Blog.csv  app/locale/fr_FR/NeoTheme_Blog.csv
 app/locale/nl_NL/NeoTheme_Blog.csv  app/locale/nl_NL/NeoTheme_Blog.csv
 skin/adminhtml/base/default/images/neotheme  skin/adminhtml/base/default/images/neotheme
 skin/frontend/base/default/css/neotheme  skin/frontend/base/default/css/neotheme
+skin/adminhtml/default/default/neotheme  skin/adminhtml/default/default/neotheme

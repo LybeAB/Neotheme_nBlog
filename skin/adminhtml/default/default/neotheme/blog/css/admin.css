@@ -1,0 +1,2 @@
+/** LYBE: Björn [tempfix: Until further development: "REMOVE" Category in adminarea via CSS] **/
+div#neotheme_blog_form tr:last-child { display: none; } /* hide on  */

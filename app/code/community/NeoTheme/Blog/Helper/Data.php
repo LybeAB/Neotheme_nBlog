@@ -42,6 +42,8 @@ class NeoTheme_Blog_Helper_Data extends Mage_Core_Helper_Abstract {
 
 	const FRONTEND_NAME = 'blog';
 
+    const XPATH_CATEGORY_SHOWN_IN_FRONTEND = 'blog/category/show_in_frontend';
+
     static function isIpPermitted($ip = NULL, $store_id = NULL) {
         if ($ip == NULL) {
             $ip = Mage::helper('core/http')->getRemoteAddr();
@@ -88,6 +90,10 @@ class NeoTheme_Blog_Helper_Data extends Mage_Core_Helper_Abstract {
     static function isDefaultCommentingEnabled($storeId = null) {
         return (Mage::getStoreConfig(self::XPATH_COMMENT_TEMPLATE, $storeId) == self::XPATH_COMMENT_TEMPLATE_DEFAULT);
     }
+    
+    static function isCategoryShownInFrontend($storeId = null) {
+        return (Mage::getStoreConfig(self::XPATH_CATEGORY_SHOWN_IN_FRONTEND, $storeId));
+    }
 
     protected $_frontendName;
 
@@ -101,8 +107,6 @@ class NeoTheme_Blog_Helper_Data extends Mage_Core_Helper_Abstract {
         }
         return $frontendName;
     }
-
-
 
     static public function getBlogLabel() {
         return self::getFrontendName(true);

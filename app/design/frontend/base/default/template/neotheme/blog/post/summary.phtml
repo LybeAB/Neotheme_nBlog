@@ -54,17 +54,21 @@
         	<h3 style="color:red;"><?php echo $this->__('[Draft] (not visible publicly)');?></h3>
         <?php endif; ?>
         
-        <?php if ($this->getPost()->getCategories()->count() > 0):?>
-        <ul class="post-categories">
-            <?php echo $this->__('Posted In: ');?>
-            <?php $i = 0; ?>
-            <?php foreach($this->getPost()->getCategories() as $category):?>
-                <?php $catName =  ($i > 0)? ',' . $category->getName() : $category->getName(); ?>
-                    <li><a href="<?php echo $category->getListUrl();?>"><?php echo $catName; ?></a></li>
-                <?php $i++; ?>
-            <?php endforeach; ?>
-        </ul>
-        <?php endif; ?>
+        <?php if (Mage::helper('neotheme_blog')->isCategoryShownInFrontend()): ?>
+            <?php if ($this->getPost()->getCategories()->count() > 0):?>
+
+            <ul class="post-categories">
+                <?php echo $this->__('Posted In: ');?>
+                <?php $i = 0; ?>
+                <?php foreach($this->getPost()->getCategories() as $category):?>
+                    <?php $catName =  ($i > 0)? ',' . $category->getName() : $category->getName(); ?>
+                        <li><a href="<?php echo $category->getListUrl();?>"><?php echo $catName; ?></a></li>
+                    <?php $i++; ?>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+        <?php endif ?>
+
         <?php if ( Mage::helper('neotheme_blog')->isDefaultCommentingEnabled()) : ?>
         <?php 
          $commentCount = $this->getPost()->getComments()->count();

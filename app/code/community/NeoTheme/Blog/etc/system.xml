@@ -158,6 +158,17 @@
                     <show_in_store>1</show_in_store>
                     <sort_order>30</sort_order>
                     <fields>
+
+                        <show_in_frontend translate="label" module="neotheme_blog">
+                            <label>Show Categories In Frontend</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_in_frontend>
+
                         <show_populated_only translate="label" module="neotheme_blog">
                             <label>Hide categories without posts?</label>
                             <frontend_type>select</frontend_type>

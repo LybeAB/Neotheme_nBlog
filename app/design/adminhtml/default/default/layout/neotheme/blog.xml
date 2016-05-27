@@ -26,6 +26,11 @@
     
     <adminhtml_neotheme_blog_post_edit>
         <update handle="editor"/>
+
+        <reference name="head">
+            <action method="addCss"><name>neotheme/blog/css/admin.css</name></action><!-- LYBE: Björn [tempfix] -->
+        </reference>
+
         <reference name="menu">
             <action method="setActive"><menupath>neotheme_blog/post</menupath></action>
         </reference>
@@ -93,8 +98,6 @@
             </block>
         </reference>
     </adminhtml_neotheme_blog_comment_index>
-    
-    
     
     <!--
     

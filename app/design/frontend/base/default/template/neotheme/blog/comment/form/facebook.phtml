@@ -37,7 +37,6 @@ $locale = Mage::app()->getLocale()->getLocaleCode();
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  //TODO: switch locale with magneto var_dump($locale);
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  js.src = "//connect.facebook.net/<?php echo $locale; ?>/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
