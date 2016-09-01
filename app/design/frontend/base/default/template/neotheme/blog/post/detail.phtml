@@ -24,6 +24,8 @@
  * @see NeoTheme_Blog_Block_Post
  */
 
+
+ $_helper = $this->helper('catalog/output');
  $formatType = Mage::getStoreConfig(NeoTheme_Blog_Helper_Data::XPATH_CONFIG_DATETIME_FORMAT_TYPE);
  $format = ($formatType != 'custom')?
     Mage::app()->getLocale()->getDateTimeFormat($formatType): 
@@ -75,7 +77,41 @@
                 <li class="post-comments"><?php echo $commentCount; ?> <?php echo $commentText;?></li>
             </ul>
             <?php endif;?>
-        </div>
+            <?php if( $this->getPost()->getProductIds()): ?>
+            <section id="main">
+                <div id="main-products">
+                    <h3><?php echo $this->__('Produkter från den här artikeln'); ?></h3>
+                    <div id="main-products-items">
+                        <ul>
+                            <?php $productSkus = explode(",", $this->getPost()->getProductIds());?>
+                            <?php foreach ($productSkus as $productSku) : ?>
+                            <?php $_product = Mage::getModel('catalog/product')->loadByAttribute('sku', $productSku);
+                                if($_product):?>
+                                    <li class="main-products-item">
+                                        <img src="<?php echo Mage::helper('catalog/image')->init($_product, 'image')->resize(243, 354); ?>" />
+                                        <div class="main-products-info">
+                                    <span class="label">
+                                        <?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+                                    </span>
+                                    <span class="price">
+                                        <?php echo $formattedPrice = Mage::helper('core')->currency($_product->getFinalPrice(), true, false); ?>
+                                    </span>
+                                            <div class="category">
+                                                <?php
+                                                $catIds = $_product->getCategoryIds();
+                                                $_category = Mage::getModel('catalog/category')->load($catIds[0]);
+                                                echo $_category->getName();?>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <?php endif; ?>
+    </div>
         
         <div class="clr"></div>
     </article>

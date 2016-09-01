@@ -70,6 +70,30 @@ class NeoTheme_Blog_Block_Adminhtml_Post_Edit_Tab_Content extends Mage_Adminhtml
             'config'    => $wysiwygConfig
         ));
 
+        /*
+         *
+         */
+        $summaryField = $fieldset->addField('image', 'editor', array(
+            'name'      => 'image',
+            'style'     => 'min-width:615px;',
+            'required'  => false,
+            'label'     => Mage::helper('cms')->__('Image'),
+            'title'     => Mage::helper('cms')->__('Image'),
+            'disabled'  => $isElementDisabled,
+            'config'    => $wysiwygConfig
+        ));
+
+        $fieldset->addField('product_ids', 'textarea', array(
+            'label' => Mage::helper('neotheme_blog')->__('Products SKU'),
+            'name' => 'product_ids',
+            'required' => false,
+            'index' => 'product_ids',
+            'note'      => 'comma separated values, ex : SKU1, SKU2... '
+        ));
+
+        /****/
+
+
         $contentField = $fieldset->addField('content_html', 'editor', array(
             'name'      => 'content_html',
             'style'     => 'min-width:615px;',
