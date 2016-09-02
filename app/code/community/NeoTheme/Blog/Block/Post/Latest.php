@@ -48,8 +48,6 @@ class NeoTheme_Blog_Block_Post_Latest extends Mage_Core_Block_Template implement
             ->addStoreFilter()
             ->addStatusFilter(NeoTheme_Blog_Model_Post::STATUS_ACTIVE)
             ->addPublishFilter()
-            ->setPageSize(1)
-            ->setCurPage(1)
             ->setPostOrder();
 
         return $this->_collection;

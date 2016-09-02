@@ -32,25 +32,18 @@
 <?php if (!$this->getCollection()->count()):?>
 	<div class="note-msg"><?php echo Mage::helper('neotheme_blog')->__('There are no posts in this category'); ?></div>
 <?php else: ?>
+    <?php $i = 1; ?>
     <?php $count = count($this->getCollection()); ?>
 	<?php foreach($this->getCollection() as $post):?>
+    <?php  if($i < 4) : ?>
     <div class="blog blog-summary<?php if ($count === 1){ echo ' last'; }; ?>">
         <?php //maybe a better way of doing this maybe a getChildHtml('summary_');
-    
         echo $this->getSummaryBlock($post)->toHtml();
         ?>
     </div>
-    <?php $count--; ?>
+    <?php $i++; $count--; ?>
+    <?php endif; ?>
     <?php endforeach; ?>
 
-    <?php echo $this->getPagerHtml(); ?>
 
-    <?php # LYBE: Björn [ Override pager in template would be an better option ]  ?>
-    <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            $('.pager > *').each(function(){
-                if ($(this).hasClass('amount') || $(this).hasClass('limiter')) { $(this).remove(); }
-            });
-        });
-    </script>
 <?php endif;?>
