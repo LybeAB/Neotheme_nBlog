@@ -26,7 +26,7 @@
 ?>
 <?php if ($this->getCollection()->count()): ?>
 <div class="blog-latest-widget">
-    <h3><?php echo $this->__($this->getTitle());?></h3>
+
     <ul>
         <?php foreach ($this->getCollection() as $post): ?>
             <li class="widget-blog-link"><a href="<?php echo $post->getReadMoreUrl(); ?>"><?php echo $post->getTitle(); ?></a></li>

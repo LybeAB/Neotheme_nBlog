@@ -67,5 +67,23 @@ implements Mage_Widget_Block_Interface
     function _toHtml(){
         $this->_prepareCollection();
         return parent::_toHtml();
-    }   
+    }
+
+    function getListUrl($noRedirect = false){
+        if (!$this->getData('list_url')){
+            $params = array('id' => $this->getId());
+            if (!$this->getCmsIdentifier() || $noRedirect){
+                if ($this->getCurrentCategoryId()){
+                    $params['category_id'] = $this->getCurrentCategoryId();
+                }
+                $url = Mage::getModel('core/url')->getUrl(Mage::helper('neotheme_blog')->getFrontendName() .'/category/index', $params);
+            }
+            else
+            {
+                $url = Mage::getModel('core/url')->getUrl(Mage::helper('neotheme_blog')->getFrontendName() ."/". $this->getCmsIdentifier() , null);
+            }
+            $this->setData('list_url', $url);
+        }
+        return $this->getData('list_url');
+    }
 }
