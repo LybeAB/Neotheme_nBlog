@@ -109,7 +109,7 @@ class NeoTheme_Blog_Block_Post_List extends Mage_Core_Block_Template implements 
     function _prepareLayout() {
 
         $pager = $this->getLayout()->createBlock('page/html_pager', 'custom.pager');
-        $pager->setAvailableLimit(array(5 => 5, 10 => 10, 20 => 20, 'all' => 'all'));
+        $pager->setAvailableLimit(array(9 => 9, 15 => 15, 30 => 30, 'all' => 'all'));
 
         $this->setChild('pager', $pager);
         parent::_prepareLayout();
